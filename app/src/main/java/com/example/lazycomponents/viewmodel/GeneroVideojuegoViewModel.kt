@@ -9,13 +9,16 @@ import com.example.lazycomponents.model.GeneroVideojuego
 
 class GeneroVideojuegoViewModel : ViewModel() {
 
+    //Lista de videojuegos con sus detalles
     private val _listaGeneros = MutableLiveData<List<GeneroVideojuego>>()
     val listaGeneros: LiveData<List<GeneroVideojuego>> = _listaGeneros
 
     init {
+        // Cargar los géneros de videojuegos al inicio del ViewModel
         cargarGeneros()
     }
 
+    // Función para cargar los géneros de videojuegos
     private fun cargarGeneros() {
         _listaGeneros.value = listOf(
             GeneroVideojuego(

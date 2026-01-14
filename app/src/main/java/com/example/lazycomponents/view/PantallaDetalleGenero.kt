@@ -10,6 +10,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.example.lazycomponents.model.GeneroVideojuego
 
+
+//Muestra la información completa de un videojuego seleccionado
 @Composable
 fun PantallaDetalleGenero(
     generoVideojuego: GeneroVideojuego,

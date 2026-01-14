@@ -17,6 +17,7 @@ fun PantallaListaGeneros(
     val viewModel: GeneroVideojuegoViewModel = viewModel()
     val listaGeneros by viewModel.listaGeneros.observeAsState(initial = emptyList())
 
+    // Lista de géneros de videojuegos
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()

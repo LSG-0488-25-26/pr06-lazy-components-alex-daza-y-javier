@@ -18,6 +18,7 @@ fun ItemGeneroVideojuego(
     generoVideojuego: GeneroVideojuego,
     onClick: () -> Unit
 ) {
+    // Card personalizada con borde y padding
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -27,13 +28,13 @@ fun ItemGeneroVideojuego(
                 shape = RoundedCornerShape(12.dp)
             )
             .clickable { onClick() }
-            .padding(vertical = 4.dp), // espacio vertical entre items
+            .padding(vertical = 4.dp),
         shape = RoundedCornerShape(12.dp),
         elevation = CardDefaults.cardElevation(6.dp)
     ) {
         Row(
             modifier = Modifier
-                .padding(horizontal = 12.dp, vertical = 8.dp), // padding interno
+                .padding(horizontal = 12.dp, vertical = 8.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
             Image(
