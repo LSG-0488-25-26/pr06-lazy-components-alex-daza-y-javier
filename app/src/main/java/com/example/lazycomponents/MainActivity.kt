@@ -1,6 +1,7 @@
 package com.example.lazycomponents
 
 
+import PantallaDetalleGenero
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -13,7 +14,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.lazycomponents.model.GeneroVideojuego
 import com.example.lazycomponents.ui.theme.LazyComponentsTheme
-import com.example.lazycomponents.view.PantallaDetalleGenero
 import com.example.lazycomponents.view.PantallaListaGeneros
 
 class MainActivity : ComponentActivity() {
@@ -30,19 +30,20 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun Main() {
-    var generoSeleccionado by remember {
-        mutableStateOf<GeneroVideojuego?>(null)
-    }
+    var generoSeleccionado by remember { mutableStateOf<GeneroVideojuego?>(null) }
 
     if (generoSeleccionado == null) {
-        PantallaListaGeneros {
-            generoSeleccionado = it
+        PantallaListaGeneros { genero ->
+            generoSeleccionado = genero
         }
     } else {
-        PantallaDetalleGenero(generoVideojuego = generoSeleccionado!!)
+        PantallaDetalleGenero(
+            generoVideojuego = generoSeleccionado!!,
+            onBack = { generoSeleccionado = null }
+        )
     }
-
 }
+
 
 @Preview(showBackground = true)
 @Composable

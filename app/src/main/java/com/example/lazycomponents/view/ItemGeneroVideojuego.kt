@@ -1,12 +1,13 @@
-package com.example.lazycomponents.view
-
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import coil.compose.AsyncImage
 import com.example.lazycomponents.model.GeneroVideojuego
 
 @Composable
@@ -18,24 +19,31 @@ fun ItemGeneroVideojuego(
         modifier = Modifier
             .padding(8.dp)
             .fillMaxWidth()
-            .clickable { onClick() }
+            .clickable { onClick() },
+        elevation = CardDefaults.cardElevation(8.dp)
     ) {
-        Row(modifier = Modifier.padding(12.dp)) {
-
-            AsyncImage(
-                model = generoVideojuego.imagenUrl,
+        Row(
+            modifier = Modifier.padding(12.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Image(
+                painter = painterResource(generoVideojuego.imagenRes),
                 contentDescription = generoVideojuego.nombreJuego,
-                modifier = Modifier.size(90.dp)
+                contentScale = ContentScale.Crop,
+                modifier = Modifier.size(100.dp)
             )
 
             Spacer(modifier = Modifier.width(12.dp))
 
-            Column {
+            Column(horizontalAlignment = Alignment.CenterHorizontally) {
                 Text(
                     text = generoVideojuego.nombreJuego,
                     style = MaterialTheme.typography.titleMedium
                 )
-                Text(text = "Género: ${generoVideojuego.genero}")
+                Text(
+                    text = generoVideojuego.genero,
+                    color = MaterialTheme.colorScheme.primary
+                )
             }
         }
     }
