@@ -7,18 +7,18 @@ import com.example.lazycomponents.model.GeneroVideojuego
 
 class GeneroVideojuegoViewModel : ViewModel() {
 
-    //Lista para controlar los datos
-    val listaGeneros = MutableLiveData<List<GeneroVideojuego>>()
+    // Lista de géneros de videojuegos
+    private val _listaGeneros = MutableLiveData<List<GeneroVideojuego>>()
 
-    //Lista para observa la vista
-    val lista_Generos: LiveData<List<GeneroVideojuego>> = listaGeneros
+    // Lista de géneros de videojuegos que se mostrará en la pantalla
+    val listaGeneros: LiveData<List<GeneroVideojuego>> = _listaGeneros
 
     init {
         cargarGeneros()
     }
 
-    fun cargarGeneros() {
-        listaGeneros.value = listOf(
+    private fun cargarGeneros() {
+        _listaGeneros.value = listOf(
             GeneroVideojuego(
                 "God of War",
                 "Acción",
