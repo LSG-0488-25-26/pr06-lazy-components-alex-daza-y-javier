@@ -1,5 +1,6 @@
 package com.example.lazycomponents.viewmodel
 
+import androidx.compose.ui.graphics.Color
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -21,49 +22,57 @@ class GeneroVideojuegoViewModel : ViewModel() {
                 "God of War",
                 "Acción",
                 R.drawable.god_of_war,
-                "Videojuego centrado en el combate y la acción constante."
+                "Videojuego centrado en el combate y la acción constante.",
+                Color.Yellow
             ),
             GeneroVideojuego(
                 "Final Fantasy VII",
                 "RPG",
                 R.drawable.final_fantasy_vii,
-                "Juego de rol con historia profunda y evolución de personajes."
+                "Juego de rol con historia profunda y evolución de personajes.",
+                Color.Black
             ),
             GeneroVideojuego(
                 "Call of Duty",
                 "Shooter",
                 R.drawable.call_of_duty,
-                "Juego de disparos en primera persona."
+                "Juego de disparos en primera persona.",
+                Color.Green
             ),
             GeneroVideojuego(
                 "The Legend of Zelda",
                 "Aventura",
                 R.drawable.zelda,
-                "Exploración, puzzles y aventura."
+                "Exploración, puzzles y aventura.",
+                Color.Blue
             ),
             GeneroVideojuego(
                 "Super Mario Bros",
                 "Plataformas",
                 R.drawable.mario,
-                "Juego basado en saltos y niveles de plataformas."
+                "Juego basado en saltos y niveles de plataformas.",
+                Color.Magenta
             ),
             GeneroVideojuego(
                 "FIFA",
                 "Deportes",
                 R.drawable.fifa,
-                "Simulación de fútbol con equipos reales."
+                "Simulación de fútbol con equipos reales.",
+                Color.Gray
             ),
             GeneroVideojuego(
                 "Need for Speed",
                 "Carreras",
                 R.drawable.need_for_speed,
-                "Carreras de coches a gran velocidad."
+                "Carreras de coches a gran velocidad.",
+                Color.Red
             ),
             GeneroVideojuego(
                 "Resident Evil",
                 "Terror",
                 R.drawable.resident_evil,
-                "Juego de terror y supervivencia."
+                "Juego de terror y supervivencia.",
+                Color.Cyan
             )
         )
     }

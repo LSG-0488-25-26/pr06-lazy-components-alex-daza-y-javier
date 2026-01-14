@@ -6,52 +6,59 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.example.lazycomponents.model.GeneroVideojuego
 
 @Composable
 fun PantallaDetalleGenero(
     generoVideojuego: GeneroVideojuego,
-    onBack: () -> Unit
+    onVolver: () -> Unit
 ) {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(16.dp),
+            .padding(horizontal = 16.dp, vertical = 24.dp),
+        verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+
         Image(
             painter = painterResource(generoVideojuego.imagenRes),
             contentDescription = generoVideojuego.nombreJuego,
-            contentScale = ContentScale.Crop,
+            contentScale = ContentScale.Fit,
             modifier = Modifier
                 .fillMaxWidth()
-                .height(300.dp)
+                .height(250.dp)
         )
 
         Spacer(modifier = Modifier.height(16.dp))
 
         Text(
             text = generoVideojuego.nombreJuego,
-            style = MaterialTheme.typography.headlineMedium
+            style = MaterialTheme.typography.headlineMedium,
+            textAlign = TextAlign.Center
         )
 
         Text(
-            text = generoVideojuego.genero,
-            color = MaterialTheme.colorScheme.primary
+            text = "Género: ${generoVideojuego.genero}",
+            textAlign = TextAlign.Center
         )
 
-        Spacer(modifier = Modifier.height(8.dp))
+        Spacer(modifier = Modifier.height(12.dp))
 
-        Text(text = generoVideojuego.descripcion)
+        Text(
+            text = generoVideojuego.descripcion,
+            textAlign = TextAlign.Center
+        )
 
-        Spacer(modifier = Modifier.weight(1f))
+        Spacer(modifier = Modifier.height(24.dp))
 
         Button(
-            onClick = onBack,
-            modifier = Modifier.fillMaxWidth()
+            onClick = onVolver,
+            modifier = Modifier.fillMaxWidth(0.5f)
         ) {
-            Text("← Volver")
+            Text("Volver")
         }
     }
 }

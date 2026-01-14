@@ -2,6 +2,7 @@ package com.example.lazycomponents
 
 
 import PantallaDetalleGenero
+import PantallaListaGeneros
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -14,7 +15,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.lazycomponents.model.GeneroVideojuego
 import com.example.lazycomponents.ui.theme.LazyComponentsTheme
-import com.example.lazycomponents.view.PantallaListaGeneros
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,9 +38,11 @@ fun Main() {
         }
     } else {
         PantallaDetalleGenero(
-            generoVideojuego = generoSeleccionado!!,
-            onBack = { generoSeleccionado = null }
-        )
+            generoVideojuego = generoSeleccionado!!
+        ) {
+            generoSeleccionado = null
+        }
+
     }
 }
 
